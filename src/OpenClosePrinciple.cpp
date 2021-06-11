@@ -41,3 +41,38 @@ void ProductFilter::printItems(Items items)
     }    
 }
 
+std::vector<Product *> BetterFilter::filter(std::vector<Product *> items,
+                                    Specification<Product>& spec)
+{
+    std::vector<Product *> result;
+    for(auto& product: items)
+    {
+        if(spec.is_satisfied(product))
+            result.push_back(product);
+    }
+
+    return result;
+}
+
+bool ColorSpecification::is_satisfied(Product *item) const
+{
+    return (item->color == color);
+}
+
+bool SizeSpecification::is_satisfied(Product *item) const
+{
+    return (item->size == size);
+}
+
+void BetterFilter::print(std::vector<Product *> items) const
+{
+    for(auto item : items)
+    {
+        std::cout<<item->name<<'\n';
+    }    
+}
+// template <typename T>
+// bool AndSpecification<T>::is_satisfied(T* item) const
+// {
+//     return first.is_satisfied(item) && second.is_satisfied(item);
+// }
