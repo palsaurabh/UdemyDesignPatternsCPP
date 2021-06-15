@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "OpenClosePrinciple.h"
+#include "DIP.h"
 
 TEST(OCPTests, Product)
 {
