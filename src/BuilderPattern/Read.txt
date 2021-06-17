@@ -1,0 +1,1 @@
+It is used where there is a lot of ceremony required to create an object
